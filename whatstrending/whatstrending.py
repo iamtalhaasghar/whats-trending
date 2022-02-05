@@ -13,7 +13,7 @@ def scrap_trends(country_name):
             trend_count = i.find('span')
             print(trend.text +"<=>"+ ('unknown' if trend_count == None else trend_count.text + ' Tweets'))
     except Exception as ex:
-        print('No such country found.')
+        print(ex)
 
 def main():
     import sys
