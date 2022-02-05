@@ -1,25 +1,32 @@
-def scrap_trends(country_name):
+def scrap_trends(how_many, country_name):
     from bs4 import BeautifulSoup
-    from urllib.request import urlopen
-
-    trends_url = 'https://trends24.in/' + country_name
+    import requests
+    user_agent = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'}
+    trends_url = 'https://getdaytrends.com/' + country_name
     try:
-        response = urlopen(trends_url)
-        soup = BeautifulSoup(response.read(), 'lxml')
+        response = requests.get(trends_url, headers=user_agent)
+        soup = BeautifulSoup(response.text, 'lxml')
 
-        trend_list = soup.find('ol') #latest trend card
-        for i in trend_list.find_all('li'):
-            trend = i.find('a')
-            trend_count = i.find('span')
-            print(trend.text +"<=>"+ ('unknown' if trend_count == None else trend_count.text + ' Tweets'))
+        trends_div = soup.find(id='trends') #latest trend card
+        trends = list()
+        for tr in trends_div.find_all('tr'):
+            trend_text = tr.td.a.text.strip()
+            trend_count = tr.find('span').text.strip()
+            trends.append((trend_text, trend_count))
+
+        print('Top %s trends in %s' % (how_many, country_name.capitalize()))
+        for i in range(how_many):
+            print(trends[i][0], '-' * 3, trends[i][1])
+
     except Exception as ex:
         print(ex)
 
 def main():
     import sys
-    args = '-'.join(sys.argv[1:])
-    print('Fetching Trends for: ' + (args if len(args.strip()) != 0 else 'Worldwide'))
-    scrap_trends(args)
+    how_many = int(sys.argv[1])
+    country = '-'.join(sys.argv[2:])
+    scrap_trends(how_many, country)
     
 if __name__ == "__main__":
     main()
