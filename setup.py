@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.0.2",
     author="Talha Asghar",
     author_email="talhaasghar.contact@simplelogin.fr",
-    description="Python CLI tool to scrap latest twitter trends without using twitter api.",
+    description="A simple Python CLI tool using which you can see Twitter Top trends of any country in your Terminal.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/iamtalhaasghar/whats-trending",
