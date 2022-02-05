@@ -21,5 +21,5 @@ def main():
     print('Fetching Trends for: ' + (args if len(args.strip()) != 0 else 'Worldwide'))
     scrap_trends(args)
     
-if __name__ == "__main__"
+if __name__ == "__main__":
     main()
