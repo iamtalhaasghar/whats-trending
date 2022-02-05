@@ -15,8 +15,11 @@ def scrap_trends(country_name):
     except Exception as ex:
         print('No such country found.')
 
-if __name__ == "__main__":
+def main():
     import sys
     args = '+'.join(sys.argv[1:])
     print('Fetching Trends for: ' + (args if len(args.strip()) != 0 else 'Worldwide'))
     scrap_trends(args)
+    
+if __name__ == "__main__"
+    main()
