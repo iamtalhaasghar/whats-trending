@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="whatstrending",
-    version="0.0.1",
+    version="0.0.2",
     author="Talha Asghar",
     author_email="talhaasghar.contact@simplelogin.fr",
     description="Python CLI tool to scrap latest twitter trends without using twitter api.",
