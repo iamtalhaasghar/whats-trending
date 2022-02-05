@@ -20,7 +20,7 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
     install_requires=["beautifulsoup4"],
-    entry_points={'console_scripts': ['whatstrending = whatstrending.main']},
+    entry_points={'console_scripts': ['whatstrending = whatstrending:whatstrending.main']},
 	
 	
 )
