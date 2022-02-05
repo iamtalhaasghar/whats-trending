@@ -19,7 +19,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
-    install_requires=["beautifulsoup4"],
+    install_requires=[i for i in open('requirements.txt').readlines() if len(i)!=0],
     entry_points={'console_scripts': ['whatstrending = whatstrending:whatstrending.main']},
 	
 	
