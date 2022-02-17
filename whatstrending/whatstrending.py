@@ -1,4 +1,4 @@
-def scrap_trends(how_many, country_name):
+def get_day_trends(how_many, country_name):
     from bs4 import BeautifulSoup
     import requests
     user_agent = {
@@ -25,11 +25,33 @@ def scrap_trends(how_many, country_name):
     except Exception as ex:
         print(ex)
 
+
+def trends_24(country_name):
+    from bs4 import BeautifulSoup
+    from urllib.request import urlopen
+    trends_url = 'https://trends24.in/' + country_name
+    try:
+        response = urlopen(trends_url)
+        soup = BeautifulSoup(response.read(), 'lxml')
+
+        trend_list = soup.find('ol')  # latest trend card
+        for i in trend_list.find_all('li'):
+            trend = i.find('a')
+            trend_count = i.find('span')
+            print(trend.text + ('' if trend_count is None else '-' * 3 + trend_count.text + ' Tweets'))
+    except Exception as ex:
+        print(ex)
+
+
+
 def main():
     import sys
     how_many = int(sys.argv[1])
     country = '-'.join(sys.argv[2:])
-    scrap_trends(how_many, country)
+    if how_many == 0:
+        trends_24(country)
+    else:
+        get_day_trends(how_many, country)
     
 if __name__ == "__main__":
     main()
