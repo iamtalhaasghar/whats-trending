@@ -38,7 +38,7 @@ def trends_24(country_name):
         for i in trend_list.find_all('li'):
             trend = i.find('a')
             trend_count = i.find('span')
-            print(trend.text + ('' if trend_count is None else '-' * 3 + trend_count.text + ' Tweets'))
+            print(trend.text.strip() + ('' if trend_count is None else '-' * 3 + trend_count.text.strip() + ' Tweets'))
     except Exception as ex:
         print(ex)
 
