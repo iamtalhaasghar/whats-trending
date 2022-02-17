@@ -6,6 +6,9 @@ def scrap_trends(how_many, country_name):
     trends_url = 'https://getdaytrends.com/' + country_name
     try:
         response = requests.get(trends_url, headers=user_agent)
+        if response.status_code == 403:
+            print('Request Denied')
+            return
         soup = BeautifulSoup(response.text, 'lxml')
 
         trends_div = soup.find(id='trends') #latest trend card
