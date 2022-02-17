@@ -3,9 +3,10 @@ import setuptools
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+__version__ = '0.0.5'
 setuptools.setup(
     name="whatstrending",
-    version="0.0.5",
+    version=__version__,
     author="Talha Asghar",
     author_email="talhaasghar.contact@simplelogin.fr",
     description="A simple Python CLI tool using which you can see Twitter Top trends of any country in your Terminal.",
