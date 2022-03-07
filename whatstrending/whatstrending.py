@@ -33,7 +33,7 @@ def trends_24(country_name):
     try:
         response = urlopen(trends_url)
         soup = BeautifulSoup(response.read(), 'lxml')
-
+        print('Top trends in %s' % (country_name.strip().capitalize()))
         trend_list = soup.find('ol')  # latest trend card
         for i in trend_list.find_all('li'):
             trend = i.find('a')
