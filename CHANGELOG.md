@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.2 (2022-03-07)
+### Fix
+* Show trend country ([`45b1f90`](https://github.com/iamtalhaasghar/whats-trending/commit/45b1f90da809eca3c48c60a077259868fd78f5a0))
+* Strip whitespaces ([`83af279`](https://github.com/iamtalhaasghar/whats-trending/commit/83af27972d18ba3eb0120d01afcdeb337deec1e2))
+
 ## v0.1.1 (2022-02-17)
 ### Fix
 * Request denied by get day trends ([`c831215`](https://github.com/iamtalhaasghar/whats-trending/commit/c831215c4726718f085e6e47e4fdb1cdab4500e8))
