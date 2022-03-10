@@ -18,12 +18,12 @@ def get_day_trends(how_many, country_name):
             trend_count = tr.find('span').text.strip()
             trends.append((trend_text, trend_count))
 
-        print('Top %s trends in %s' % (how_many, country_name.capitalize()))
+        trends_text = 'Top %s trends in %s\n' % (how_many, country_name.capitalize())
         for i in range(how_many):
-            print(trends[i][0], '-' * 3, trends[i][1])
-
+            trends_text += trends[i][0], '-' * 3, trends[i][1] + "\n"
+        return trends_text
     except Exception as ex:
-        print(ex)
+        return str(ex)
 
 
 def trends_24(country_name):
@@ -33,14 +33,15 @@ def trends_24(country_name):
     try:
         response = urlopen(trends_url)
         soup = BeautifulSoup(response.read(), 'lxml')
-        print('Top trends in %s' % (country_name.strip().capitalize()))
+        trends_text = 'Top trends in %s\n' % (country_name.strip().capitalize())
         trend_list = soup.find('ol')  # latest trend card
         for i in trend_list.find_all('li'):
             trend = i.find('a')
             trend_count = i.find('span')
-            print(trend.text.strip() + ('' if trend_count is None else '-' * 3 + trend_count.text.strip() + ' Tweets'))
+            trends_text += (trend.text.strip() + ('' if trend_count is None else '-' * 3 + trend_count.text.strip() + ' Tweets')) + "\n"
+        return trends_text
     except Exception as ex:
-        print(ex)
+        return str(ex)
 
 
 
@@ -49,9 +50,9 @@ def main():
     how_many = int(sys.argv[1])
     country = '-'.join(sys.argv[2:])
     if how_many == 0:
-        trends_24(country)
+        print(trends_24(country))
     else:
-        get_day_trends(how_many, country)
-    
+        print(get_day_trends(how_many, country))
+
 if __name__ == "__main__":
     main()
