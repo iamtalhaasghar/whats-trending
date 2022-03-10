@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.0 (2022-03-10)
+### Feature
+* Trending google searches ([`2127f4d`](https://github.com/iamtalhaasghar/whats-trending/commit/2127f4d4486d52da500e20e79a5f5294f441894d))
+
 ## v0.1.3 (2022-03-10)
 ### Fix
 * Return trends so that whatstrending can be used as a module ([`622404d`](https://github.com/iamtalhaasghar/whats-trending/commit/622404d094ff83e8ff6c08d3221f8a0ef11ea2fa))
