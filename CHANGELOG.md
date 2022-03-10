@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.3 (2022-03-10)
+### Fix
+* Return trends so that whatstrending can be used as a module ([`622404d`](https://github.com/iamtalhaasghar/whats-trending/commit/622404d094ff83e8ff6c08d3221f8a0ef11ea2fa))
+
 ## v0.1.2 (2022-03-07)
 ### Fix
 * Show trend country ([`45b1f90`](https://github.com/iamtalhaasghar/whats-trending/commit/45b1f90da809eca3c48c60a077259868fd78f5a0))
