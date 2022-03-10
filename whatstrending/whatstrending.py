@@ -1,6 +1,14 @@
+from bs4 import BeautifulSoup
+import requests
+import sys
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from bs4 import BeautifulSoup as Soup
+
 def get_day_trends(how_many, country_name):
-    from bs4 import BeautifulSoup
-    import requests
     user_agent = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'}
     trends_url = 'https://getdaytrends.com/' + country_name
@@ -27,8 +35,7 @@ def get_day_trends(how_many, country_name):
 
 
 def trends_24(country_name):
-    from bs4 import BeautifulSoup
-    from urllib.request import urlopen
+
     trends_url = 'https://trends24.in/' + country_name
     try:
         response = urlopen(trends_url)
@@ -43,16 +50,32 @@ def trends_24(country_name):
     except Exception as ex:
         return str(ex)
 
+def google_trends():
 
+    options = webdriver.FirefoxOptions()
+    options.headless = True
+
+    browser = webdriver.Firefox(options=options)
+    browser.get('https://google.com')
+    search_bar = browser.find_element(By.NAME, 'q')
+    search_bar.send_keys(Keys.ARROW_DOWN)
+    ul = browser.find_element(By.TAG_NAME, 'ul')
+    soup = Soup(ul.get_attribute('innerHTML'), 'lxml')
+    trending_text = "Trending Searches:\n"
+    for li in soup.find_all('li'):
+        trending_text += (li.text.strip().replace('Remove','')) + "\n"
+
+    browser.close()
+    return trending_text
 
 def main():
-    import sys
     how_many = int(sys.argv[1])
     country = '-'.join(sys.argv[2:])
     if how_many == 0:
         print(trends_24(country))
     else:
         print(get_day_trends(how_many, country))
+    print(google_trends())
 
 if __name__ == "__main__":
     main()
