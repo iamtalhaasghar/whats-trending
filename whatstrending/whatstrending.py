@@ -71,11 +71,12 @@ def google_trends():
 def main():
     how_many = int(sys.argv[1])
     country = '-'.join(sys.argv[2:])
-    if how_many == 0:
+    if how_many < 0:
+        print(google_trends())
+    elif how_many == 0:
         print(trends_24(country))
     else:
         print(get_day_trends(how_many, country))
-    print(google_trends())
 
 if __name__ == "__main__":
     main()
