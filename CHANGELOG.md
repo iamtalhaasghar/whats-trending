@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.1 (2022-03-10)
+### Fix
+* Call google_trends with a separate arg ([`4928721`](https://github.com/iamtalhaasghar/whats-trending/commit/492872163f76f9344c4d7ca15fe65a57f81cac53))
+
 ## v0.2.0 (2022-03-10)
 ### Feature
 * Trending google searches ([`2127f4d`](https://github.com/iamtalhaasghar/whats-trending/commit/2127f4d4486d52da500e20e79a5f5294f441894d))
