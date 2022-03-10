@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.2 (2022-03-10)
+### Fix
+* Remove extralines ([`673719c`](https://github.com/iamtalhaasghar/whats-trending/commit/673719cb3dd5b19654ad8762c9bd8013f974fd3c))
+
 ## v0.2.1 (2022-03-10)
 ### Fix
 * Call google_trends with a separate arg ([`4928721`](https://github.com/iamtalhaasghar/whats-trending/commit/492872163f76f9344c4d7ca15fe65a57f81cac53))
