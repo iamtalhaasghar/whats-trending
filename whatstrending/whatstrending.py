@@ -72,7 +72,7 @@ def main():
     how_many = int(sys.argv[1])
     country = '-'.join(sys.argv[2:])
     if how_many < 0:
-        print(google_trends())
+        print( google_trends())
     elif how_many == 0:
         print(trends_24(country))
     else:
