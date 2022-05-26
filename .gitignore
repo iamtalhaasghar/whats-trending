@@ -5,3 +5,5 @@ dist/
 venv/
 whatstrending.egg-info/
 
+
+whatstrending/geckodriver.log

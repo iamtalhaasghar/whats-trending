@@ -42,10 +42,12 @@ def trends_24(country_name):
         soup = BeautifulSoup(response.read(), 'lxml')
         trends_text = 'Top trends in %s\n' % (country_name.strip().capitalize())
         trend_list = soup.find('ol')  # latest trend card
-        for i in trend_list.find_all('li'):
-            trend = i.find('a')
-            trend_count = i.find('span')
-            trends_text += (trend.text.strip() + ('' if trend_count is None else '-' * 3 + trend_count.text.strip() + ' Tweets')) + "\n"
+        print(trend_list)
+        for n, i in enumerate(trend_list.find_all('li')):
+            if n < 40:
+                trend = i.find('a')
+                trend_count = i.find('span')
+                trends_text += (trend.text.strip() + ('' if trend_count is None else '-' * 3 + trend_count.text.strip() + ' Tweets')) + "\n"
         return trends_text
     except Exception as ex:
         return str(ex)
