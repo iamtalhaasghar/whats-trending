@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.3 (2022-05-26)
+### Fix
+* Only show first 40 trends ([`ba45e51`](https://github.com/iamtalhaasghar/whats-trending/commit/ba45e511eb0b110d3a9dc54ece263d8f91ad79b8))
+
 ## v0.2.2 (2022-03-10)
 ### Fix
 * Remove extralines ([`673719c`](https://github.com/iamtalhaasghar/whats-trending/commit/673719cb3dd5b19654ad8762c9bd8013f974fd3c))
