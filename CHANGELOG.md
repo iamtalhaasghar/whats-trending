@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.4 (2022-05-28)
+### Fix
+* Disable debug print statements ([`d3da851`](https://github.com/iamtalhaasghar/whats-trending/commit/d3da8511a6172b7459924feaf467e3bd4b276f43))
+
 ## v0.2.3 (2022-05-26)
 ### Fix
 * Only show first 40 trends ([`ba45e51`](https://github.com/iamtalhaasghar/whats-trending/commit/ba45e511eb0b110d3a9dc54ece263d8f91ad79b8))
