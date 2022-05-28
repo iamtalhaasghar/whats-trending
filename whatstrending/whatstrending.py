@@ -42,7 +42,6 @@ def trends_24(country_name):
         soup = BeautifulSoup(response.read(), 'lxml')
         trends_text = 'Top trends in %s\n' % (country_name.strip().capitalize())
         trend_list = soup.find('ol')  # latest trend card
-        print(trend_list)
         for n, i in enumerate(trend_list.find_all('li')):
             if n < 40: # show just first 40 trends
                 trend = i.find('a')
